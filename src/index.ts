@@ -1,21 +1,10 @@
-// 4.1.2：戻り値のない関数宣言
-function helloWorldTimes(n: number): void {
-    for (let i = 0; i < n; i++) {
-        console.log("Hello, world!");
-    }
-}
-
-console.log(helloWorldTimes(5));
-
-function helloWorldTimes2(n: number): void {
-    if (n >= 100) {
-        console.log(`${n}回なんて無理です！`);
-        return;
-    }
-    for (let i = 0; i < n; i++) {
-        console.log("Hello, world!");
-    }
-}
-
-helloWorldTimes2(5);
-helloWorldTimes2(150);
+// 4.1.3：関数式で関数を作る
+type Human = {
+    height: number,
+    weight: number,
+};
+const calcBMI = function (human: Human): number {
+    return human.weight / human.height ** 2;
+};
+const uhyo: Human = { height: 1.84, weight: 72 };
+console.log(calcBMI(uhyo));
