@@ -1,9 +1,12 @@
-// 4.1.6：メソッド記法
-const obj = {
-    double(num: number): number {
-        return num * 2;
-    },
-    double2: (num: number): number => num * 2,
+// 4.1.7：可変長引数
+const sum = (...args: number[]): number => {
+    let result = 0;
+    for (const num of args) {
+        result += num;
+    }
+    return result;
 };
-console.log(obj.double(100));
-console.log(obj.double2(-50));
+
+console.log(sum(1, 10, 100));
+console.log(sum(123, 456));
+console.log(sum());
