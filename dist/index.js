@@ -1,29 +1,10 @@
 "use strict";
-const data = `
-uhyo,26,1
-jhon Smith,17,0
-Mary Sue,14,1
-`;
-const users = [];
-const lines = data.split("\n");
-for (const line of lines) {
-    if (line === "") {
-        continue;
+// 4.1.1：関数宣言
+function range(min, max) {
+    const result = [];
+    for (let i = min; i <= max; i++) {
+        result.push(i);
     }
-    const [name, ageString, premiumUserString] = line.split(",");
-    const age = Number(ageString);
-    const premiumUser = premiumUserString === "1";
-    users.push({
-        name,
-        age,
-        premiumUser,
-    });
+    return result;
 }
-for (const user of users) {
-    if (user.premiumUser) {
-        console.log(`${user.name}(${user.age})はプレミアムユーザです。`);
-    }
-    else {
-        console.log(`${user.name}(${user.age})はプレミアムユーザではありません。`);
-    }
-}
+console.log(range(5, 10));
