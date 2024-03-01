@@ -1,10 +1,4 @@
 "use strict";
-// 3.7.2：正規表現
-// const r = /ab+c/;
-const r = /^abc/;
-// console.log(r.test("abbbbbc"));
-// console.log(r.test("Hello, abc world!"));
-// console.log(r.test("ABC"));
-// console.log(r.test("こんにちは！"));
-console.log(r.test("abcdefg"));
-console.log(r.test("Hello, abcdefg"));
+// 3.7.3：正規表現を使う方法
+console.log("Hello, abbbbbbc world! abbc".replace(/ab+c/, "foobar"));
+console.log("Hello, abbbbbbc world! abbc".replace(/ab+c/g, "foobar"));
