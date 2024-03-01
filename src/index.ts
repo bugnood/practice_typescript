@@ -11,21 +11,23 @@ jhon Smith,17,0
 Mary Sue,14,1
 `;
 
-// dataの値を格納する配列を作る
-const arr = data.split("\n");
+const users: User[] = [];
 
-// User型のオブジェクトを作る
-let userObj = [];
-for (const u of arr) {
-    if (u !== '') {
-        userObj = u.split(",");
-        console.log(userObj);
+const lines = data.split("\n");
+for (const line of lines) {
+    if (line === "") {
+        continue;
     }
-}
-// const userObj: User = "配列を入れる（コンマで区切った値）":
+    const [name, ageString, premiumUserString] = line.split(",");
+    const age = Number(ageString);
+    const premiumUser = premiumUserString === "1";
 
-// オブジェクトの入った配列を作る user(obj1, obj2, obj3...)
-const users = [];
+    users.push({
+        name,
+        age,
+        premiumUser,
+    });
+}
 
 for (const user of users) {
     if (user.premiumUser) {
@@ -34,8 +36,3 @@ for (const user of users) {
         console.log(`${user.name}(${user.age})はプレミアムユーザではありません。`);
     }
 }
-
-// usersオブジェクトを作る
-// usersの中身は、name,age,premiumUserの3つのプロパティ
-// オブジェクトの入った配列を作る user(obj1, obj2, obj3...)
-// User型のオブジェクトを作る
